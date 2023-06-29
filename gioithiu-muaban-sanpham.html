@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giới thiệu sản phẩm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .product-item {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            width: 250px;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-item h3 {
+            margin-top: 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #dang_ky {
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #lien_he {
+            background-color: #333333;
+            color: #f1f1f1;
+        }
+        .submit1{
+            background: transparent;
+            border: 1px solid #f5f5f5;
+            color: #fff;
+            width: 100%;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            transition:0.25s ease-in-out;}
+        /*.nav{*/
+        /*    position: fixed;*/
+        /*}*/
+       /*body{ background-color: #f1f1f1;*/
+       /* background-size: cover;*/
+       /* background-image: url("Anh-Dep-Lam-Hinh-Nen.jpeg");}*/
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <ul>
+        <li><a href="#"><h3>Trang Chủ</h3></a></li>
+        <li><a href="#new_product"><h3>Sản Phẩm</h3></a></li>
+        <li><a href="#lien_he"><h3>Liên Hệ</h3></a></li>
+    </ul>
+    <ul id="dang_ky">
+        <li><a href="">Đăng ký</a></li>
+        <li><a href="">Đăng Nhập</a></li>
+    </ul>
+
+</nav>
+<h1>PHỐ HÀNG DA <img src="img/anhnen1.jpeg" height="100" width="100"/></h1>
+<table>
+    <tr>
+        <td>
+            <h2>Shop Phố Hàng Da</h2>
+            <div id="gioithieu">
+                <ul><h3>Là một cửa hàng chuyên cung cấp các sản phẩm đồ da cao cấp</h3></ul>
+                <ul><h3>Bao Gồm</h3></ul>
+                <ul>
+                    <li>Túi Sách</li>
+                    <li>Ví Da</li>
+                    <li>Dây Lưng</li>
+                    <li>Giày Dép</li>
+                    <li>Phụ Kiện Da</li>
+                </ul>
+            </div>
+            <ul>Sản phẩm của shop được sản xuất từ chất liệu da thật và được chăm sóc <br> và gia công tỉ mỉ để đảm bảo
+                chất lượng và độ bền
+            </ul>
+            <ul> Shop Phố Hàng Da cũng có đội ngũ nhân viên tư vấn nhiệt tình và chuyên nghiệp,<br> sẵn sàng giúp đỡ và
+                hỗ trợ khách hàng trong việc chọn lựa sản phẩm
+                <br> phù hợp với nhu cầu và phong cách của mỗi người.
+            </ul>
+
+        </td>
+        <td>
+            <img id="my-img" src="img/anhdaidien.webp" height="400" width="850"/>
+
+        </td>
+    </tr>
+</table>
+<h1>Danh Sách Sản Phẩm</h1>
+<div id="new_product"></div>
+<table style="background-color: #5f6062; color: #f1f1f1; margin: auto;width:400px;height:100px" id="table">
+    <tr>
+        <th>Tên sản Phẩm</th>
+        <td><input size="42px" type="text" id="ten_sp" placeholder="tên sản phẩm"></td>
+    </tr>
+    <tr>
+        <th>Số Lượng</th>
+        <td>
+            <input type="number" size="42px" placeholder="Số Lượng" oninput="tinh_tien(this.value)"
+                   onchange="tinh_tien(this.value)" id="SL">
+        </td>
+    </tr>
+    <tr>
+        <th>Giá tiền</th>
+        <td><input type="text" name="" id="gia" size="42px" placeholder="Giá Tiền"></td>
+    </tr>
+    <tr>
+        <th>Tổng Tiền</th>
+        <td><input type="text" name="" id="tong_tien" size="42px" placeholder="Tổng Tiền"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Mua ngay" onclick="muaNgay()" class="submit1">
+        </td>
+    </tr>
+
+</table>
+<div id="dat_hang"></div>
+<div id="lien_he">
+    <ul>
+        <li><h3>Phố Hàng Da 571 Chợ hàng</h3></li>
+    </ul>
+    <ul>
+        <li>Địa chỉ : 571 chợ hàng mới - Hàng kênh - Lê Chân - Hải Phòng</li>
+        <li>Hotline : 097.124.3232</li>
+        <li>Email : Nguyendong220496@gmail.com</li>
+
+    </ul>
+</div>
+<script>
+    const images = [
+        "img/anhdaidien.webp",
+        "img/tuisach.jpg",
+        "img/anhbia1.jpeg",
+        "img/daylung.jpg",
+        "img/daylung1.jpg"
+    ];
+
+    let currentImageIndex = 0;
+
+    setInterval(() => {
+        const img = document.getElementById("my-img");
+        img.src = images[currentImageIndex];
+        currentImageIndex++;
+        if (currentImageIndex >= images.length) {
+            currentImageIndex = 0;
+        }
+    }, 3000);
+
+    class newProduct {
+        product
+        img
+        gia
+
+        constructor(product, img, gia) {
+            this.product = product
+            this.img = img
+            this.gia = gia
+        }
+    }
+
+    let product1 = new newProduct("Ví Da Nam", "img/vida.jpg", "250.000")
+    let product2 = new newProduct("Ví Da Cá Sấu PU", "img/vidacasau1.jpeg", "170.000")
+    let product3 = new newProduct("Ví Da Cá Sấu", "img/vidacasau.jpeg", "525.000")
+    let product4 = new newProduct("Ví Da Voi Nam Màu Nâu", "img/vidavoi.jpeg", "210.000")
+    let product5 = new newProduct("Thắt Lưng Da Bò Thật Màu ", "img/thatlung.jpg", "300.000")
+    let product6 = new newProduct("Thắt Lưng Da Bò PU Màu Nâu-Đen", "img/daylung1.jpg", "180.000")
+    let product7 = new newProduct("Thắt Lưng Nam Da Bò Thật Màu Đen", "img/thatlungnam.jpeg", "180.000")
+    let product8 = new newProduct("Dép Da Nam Quai Ngang Lâu Vàng ", "img/depdanam.jpg", "200.000")
+    let product9 = new newProduct("Dép Da Nam Quai Ngang Lâu Vàng ", "img/depdanam.jpg", "200.000")
+    let arr = [product1, product2, product3, product4, product5, product6, product7, product8, product9]
+
+    class danhSach {
+        product
+
+        constructor(arr) {
+            this.product = arr
+        }
+
+        displayProduct() {
+            let data = "<div class='product'>"
+            for (let i = 0; i < this.product.length; i++) {
+                data += "<div class='product-item'>"
+                data += "<img src='" + this.product[i].img + "' height='1024' width='1024'/>"
+                data += "<h3>" + this.product[i].product + "</h3>"
+                data += "<p>Giá: " + this.product[i].gia + "</p>"
+                data += `<button onclick="mua_ngay(${i})"> <a href="#table"> Mua Ngay</a></button>`
+                data += "</div>"
+            }
+            data += "</div>"
+            document.getElementById("new_product").innerHTML = data
+        }
+
+        mua(i) {
+            return this.product[i]
+        }
+    }
+
+    let np = new danhSach(arr)
+    np.displayProduct()
+
+    function mua_ngay(i) {
+        let count = confirm("bạn có muốn mua sản phẩm này không ?")
+        if (count === true) {
+            document.getElementById("ten_sp").value = np.mua(i).product
+            document.getElementById("gia").value = np.mua(i).gia
+            a = i
+        }
+    }
+
+    function tinh_tien(sl) {
+        sl = parseFloat(sl)
+        let giatien = parseFloat(np.mua(a).gia)
+        document.getElementById("tong_tien").value = (sl * giatien) + ".000"
+
+    }
+
+    function muaNgay() {
+        let data = "<table style='margin: auto;width:400px;height:100px'>"
+        data +="<tr>" +"<td>Họ Và Tên</td>"
+        data += '<td><input type="text" size="89px"></td>'
+            data +="</tr>"
+        data += "<tr>"
+        data += "<td>Địa chỉ</td>"
+        data +=    '<td>'+'<input type="text" placeholder="Thành phố">' +'<input type="text" placeholder="Quận-Huyện">'
+        data += '<input type="text" placeholder="Phường-Xã">' + '<input type="text" placeholder="Địa chỉ chi tiết">'+'</td>'
+         data += '</tr>'
+        data += '<tr>' +'<td>Số Điện thoại</td>'+ '<td><input type="text" placeholder="Số Điện thoại" size="89px"></td>' +'</tr>'
+        data += '<tr>' + '<td>Sản Phẩm mua</td>' + '<td><input type="text" id="ten" size="89px"></td>' + '</tr>'
+        data += '<tr>' + '<td>Số lượng</td>' + '<td><input type="text" id="soluong" size="89px"></td>' + '</tr>'
+        data += '<tr>' + '<td>Giá</td>' + '<td><input type="text" id="giathanh" size="89px"></td>' + '</tr>'
+        data += '<tr>' + '<td>Tổng tiền</td>' + '<td><input type="text" id="tongtien" size="89px"></td>' + '</tr>'
+        data += '<tr>' + '<td colspan="2">' + '<button  style=" margin:auto">Gửi Thông tin</button>' + '</td>' + '</tr>'
+        data += "</table>"
+        document.getElementById('dat_hang').innerHTML=data
+        let sanpham = document.getElementById("ten_sp").value
+        let soluong = document.getElementById("SL").value
+        let gia = document.getElementById("gia").value
+        let tong = document.getElementById("tong_tien").value
+        document.getElementById("ten").value = sanpham
+        document.getElementById("soluong").value = soluong
+        document.getElementById("giathanh").value = gia
+        document.getElementById("tongtien").value = tong
+    }
+</script>
+</body>
+</html>
