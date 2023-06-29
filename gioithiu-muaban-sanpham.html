@@ -92,8 +92,8 @@
         <li><a href="#lien_he"><h3>Liên Hệ</h3></a></li>
     </ul>
     <ul id="dang_ky">
-        <li><a href="">Đăng ký</a></li>
-        <li><a href="">Đăng Nhập</a></li>
+        <li><button onclick="dang_ky()">Đăng Ký</button></li>
+        <li><button onclick="dang_nhap()">Đăng Nhập</button></li>
     </ul>
 
 </nav>
@@ -130,6 +130,7 @@
 </table>
 <h1>Danh Sách Sản Phẩm</h1>
 <div id="new_product"></div>
+<div style="text-align: center"><h2>Thông Tin Đơn Hàng</h2></div>
 <table style="background-color: #5f6062; color: #f1f1f1; margin: auto;width:400px;height:100px" id="table">
     <tr>
         <th>Tên sản Phẩm</th>
@@ -170,6 +171,7 @@
     </ul>
 </div>
 <script>
+
     const images = [
         "img/anhdaidien.webp",
         "img/tuisach.jpg",
@@ -209,8 +211,11 @@
     let product6 = new newProduct("Thắt Lưng Da Bò PU Màu Nâu-Đen", "img/daylung1.jpg", "180.000")
     let product7 = new newProduct("Thắt Lưng Nam Da Bò Thật Màu Đen", "img/thatlungnam.jpeg", "180.000")
     let product8 = new newProduct("Dép Da Nam Quai Ngang Lâu Vàng ", "img/depdanam.jpg", "200.000")
-    let product9 = new newProduct("Dép Da Nam Quai Ngang Lâu Vàng ", "img/depdanam.jpg", "200.000")
-    let arr = [product1, product2, product3, product4, product5, product6, product7, product8, product9]
+    let product9 = new newProduct("Thắt Lưng Nam Da Bò Thật Màu Đen QK-5T2 ", "img/that-lung1.jpeg", "109.000")
+    let product10 = new newProduct("Thắt Lưng Nam Da Bò Thật 2 Màu QK-5T7 Khóa Kim ", "img/thatlung2.jpeg", "150.000")
+    let product11 = new newProduct("Ví Da Bò QK01 Màu Đen Cao Cấp ", "img/vida.jpeg", "350.000")
+    let product12 = new newProduct("Ví Da Cá Sấu QK-355 Màu Nâu Ví Da Kẹp Nách Cao Cấp  ", "img/vicasau.jpeg", "4500.000")
+    let arr = [product1, product2, product3, product4, product5, product6, product7, product8, product9,product10, product11, product12]
 
     class danhSach {
         product
@@ -254,36 +259,56 @@
         sl = parseFloat(sl)
         let giatien = parseFloat(np.mua(a).gia)
         document.getElementById("tong_tien").value = (sl * giatien) + ".000"
-
     }
 
     function muaNgay() {
-        let data = "<table style='margin: auto;width:400px;height:100px'>"
-        data +="<tr>" +"<td>Họ Và Tên</td>"
-        data += '<td><input type="text" size="89px"></td>'
-            data +="</tr>"
-        data += "<tr>"
-        data += "<td>Địa chỉ</td>"
-        data +=    '<td>'+'<input type="text" placeholder="Thành phố">' +'<input type="text" placeholder="Quận-Huyện">'
-        data += '<input type="text" placeholder="Phường-Xã">' + '<input type="text" placeholder="Địa chỉ chi tiết">'+'</td>'
-         data += '</tr>'
-        data += '<tr>' +'<td>Số Điện thoại</td>'+ '<td><input type="text" placeholder="Số Điện thoại" size="89px"></td>' +'</tr>'
-        data += '<tr>' + '<td>Sản Phẩm mua</td>' + '<td><input type="text" id="ten" size="89px"></td>' + '</tr>'
-        data += '<tr>' + '<td>Số lượng</td>' + '<td><input type="text" id="soluong" size="89px"></td>' + '</tr>'
-        data += '<tr>' + '<td>Giá</td>' + '<td><input type="text" id="giathanh" size="89px"></td>' + '</tr>'
-        data += '<tr>' + '<td>Tổng tiền</td>' + '<td><input type="text" id="tongtien" size="89px"></td>' + '</tr>'
-        data += '<tr>' + '<td colspan="2">' + '<button  style=" margin:auto">Gửi Thông tin</button>' + '</td>' + '</tr>'
-        data += "</table>"
-        document.getElementById('dat_hang').innerHTML=data
-        let sanpham = document.getElementById("ten_sp").value
-        let soluong = document.getElementById("SL").value
-        let gia = document.getElementById("gia").value
-        let tong = document.getElementById("tong_tien").value
-        document.getElementById("ten").value = sanpham
-        document.getElementById("soluong").value = soluong
-        document.getElementById("giathanh").value = gia
-        document.getElementById("tongtien").value = tong
+            let data = '<h2>Thông Tin Chi Tiết</h2>' + "<table style='margin: auto;width:800px;height:300px;  '>"
+            data += "<tr>" + "<td >Họ Và Tên</td>"
+            data += '<td><input type="text" size="89px" id="ht"></td>'
+            data += "</tr>"
+            data += "<tr>"
+            data += "<td>Địa chỉ</td>"
+            data += '<td>' + '<input type="text" placeholder="Thành phố" id="tp">' + '<input id="qh" type="text" placeholder="Quận-Huyện">'
+            data += '<input id="px" type="text" placeholder="Phường-Xã">' + '<input id="ct" type="text" placeholder="Địa chỉ chi tiết">' + '</td>'
+            data += '</tr>'
+            data += '<tr>' + '<td>Số Điện thoại</td>' + '<td><input id="sdt" type="text" placeholder="Số Điện thoại" size="89px"></td>' + '</tr>'
+            data += '<tr>' + '<td>Sản Phẩm mua</td>' + '<td><input type="text" id="ten" size="89px"></td>' + '</tr>'
+            data += '<tr>' + '<td>Số lượng</td>' + '<td><input type="text" id="soluong" size="89px"></td>' + '</tr>'
+            data += '<tr>' + '<td>Giá</td>' + '<td><input type="text" id="giathanh" size="89px"></td>' + '</tr>'
+            data += '<tr>' + '<td>Tổng tiền</td>' + '<td><input type="text" id="tongtien" size="89px"></td>' + '</tr>'
+            data += '<tr>' + '<td colspan="2">' + '<button onclick="gui_thong_tin()">Gửi Thông tin</button>' + '</td>' + '</tr>'
+            data += "</table>"
+            document.getElementById('dat_hang').innerHTML = data
+            let sanpham = document.getElementById("ten_sp").value
+            let soluong = document.getElementById("SL").value
+            let gia = document.getElementById("gia").value
+            let tong = document.getElementById("tong_tien").value
+            document.getElementById("ten").value = sanpham
+            document.getElementById("soluong").value = soluong
+            document.getElementById("giathanh").value = gia
+            document.getElementById("tongtien").value = tong
+        }
+    function dang_nhap(){
+        window.location.href = "dang-nhap.html"
     }
+    function dang_ky(){
+        window.location.href = "dang-ky.html"
+    }
+    function gui_thong_tin(){
+        let ht =document.getElementById("ht").value
+        let tp =document.getElementById("tp").value
+        let qh =document.getElementById("qh").value
+        let px =document.getElementById("px").value
+        let ct =document.getElementById("ct").value
+        let sdt =document.getElementById("sdt").value
+        let sl =document.getElementById("soluong").value
+        let count = confirm("bạn có muốn mua sản phẩm này không ?")
+        if (count === true) {
+            if(ht===""||tp===""||qh===""||px===""||ct===""||sdt===""||sl===""){
+                alert("Vui lòng điền đầy đủ thông tin")
+            }else{
+        window.location.href = "bao-cao-donhang.html"
+    }}}
 </script>
 </body>
 </html>
