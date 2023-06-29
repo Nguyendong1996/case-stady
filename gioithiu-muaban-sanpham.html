@@ -76,9 +76,24 @@
             text-transform: uppercase;
             padding: 6px 10px;
             transition:0.25s ease-in-out;}
-        /*.nav{*/
-        /*    position: fixed;*/
-        /*}*/
+
+        .mua,.table {
+            font-size: 25px;
+            font-weight: bolder;
+            color: maroon;
+            background-color: blanchedalmond;
+            margin-left: 700px;
+            margin-bottom: 50px;
+            padding: 15px 15px;
+            border: 4px solid crimson;
+            border-radius: 10px;
+        }
+        .nav{
+            position: fixed;
+            top:0px;
+            left:0px;
+            right:0px;
+        }
        /*body{ background-color: #f1f1f1;*/
        /* background-size: cover;*/
        /* background-image: url("Anh-Dep-Lam-Hinh-Nen.jpeg");}*/
@@ -91,13 +106,13 @@
         <li><a href="#new_product"><h3>Sản Phẩm</h3></a></li>
         <li><a href="#lien_he"><h3>Liên Hệ</h3></a></li>
     </ul>
-    <ul id="dang_ky">
+    <ul id="dang_ky" style="margin-top:-50px">
         <li><button onclick="dang_ky()">Đăng Ký</button></li>
         <li><button onclick="dang_nhap()">Đăng Nhập</button></li>
     </ul>
 
 </nav>
-<h1>PHỐ HÀNG DA <img src="img/anhnen1.jpeg" height="100" width="100"/></h1>
+<h1 style="margin-top:80px">PHỐ HÀNG DA <img src="img/anhnen1.jpeg" height="100" width="100"/></h1>
 <table>
     <tr>
         <td>
@@ -131,7 +146,7 @@
 <h1>Danh Sách Sản Phẩm</h1>
 <div id="new_product"></div>
 <div style="text-align: center"><h2>Thông Tin Đơn Hàng</h2></div>
-<table style="background-color: #5f6062; color: #f1f1f1; margin: auto;width:400px;height:100px" id="table">
+<table style=" margin: auto;width:800px;height:100px" class="table" id="table">
     <tr>
         <th>Tên sản Phẩm</th>
         <td><input size="42px" type="text" id="ten_sp" placeholder="tên sản phẩm"></td>
@@ -153,7 +168,7 @@
     </tr>
     <tr>
         <td colspan="2">
-            <input type="submit" value="Mua ngay" onclick="muaNgay()" class="submit1">
+            <input style="color: blue;background-color: #5f6062" type="submit" value="Mua ngay" onclick="muaNgay()" class="submit1">
         </td>
     </tr>
 
@@ -262,7 +277,7 @@
     }
 
     function muaNgay() {
-            let data = '<h2>Thông Tin Chi Tiết</h2>' + "<table style='margin: auto;width:800px;height:300px;  '>"
+            let data = '<h2>Thông Tin Chi Tiết</h2>' + "<table style='margin: auto;width:1000px;height:300px;  ' class='mua'>"
             data += "<tr>" + "<td >Họ Và Tên</td>"
             data += '<td><input type="text" size="89px" id="ht"></td>'
             data += "</tr>"
